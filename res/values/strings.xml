@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MTutor - Go smart!</string>
+    <string name="hello">Hello MTutor!</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string-array name="navigation_drawer_items_array">
+        <item>Maths</item>
+        <item>Geography</item>
+        <item>Help</item>
+    </string-array>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+
+    <style name="mytheme" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+
+</resources>
+
