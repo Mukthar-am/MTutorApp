@@ -1,13 +1,10 @@
 package com.tutor.app;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,12 +57,12 @@ public class MainActivity extends Activity {
         // Action bar:
         //mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(
-                                                    this,
-                                                    mDrawerLayout,
-                                                    R.drawable.ic_drawer,
-                                                    R.string.drawer_open,
-                                                    R.string.drawer_close
-                                                ) {
+            this,
+            mDrawerLayout,
+            R.drawable.ic_drawer,
+            R.string.drawer_open,
+            R.string.drawer_close
+        ) {
 
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
@@ -135,37 +132,42 @@ public class MainActivity extends Activity {
 
     // select an fragment item:
     private void selectItem(int position) {
-        Fragment fragment = null;
+        // Handle Nav Options
+        Intent intent;
+        switch (position) {
+            case 0:
+                startActivity(new Intent(this, ListViewAndroidExample.class));
+                break;
 
+            default:
+                break;
+
+        }   // end switch()
+
+
+    }   // selectItem()
+
+
+    // #########################################################################################
+    /*  // This is the way a fragment should be called from a fragment click:
+    // select an fragment item:
+    private void selectItem(int position) {
+        Fragment fragment = null;
 
         // Handle Nav Options
         Intent intent;
         switch (position) {
             case 0:
-//                intent = new Intent(this, ListViewAndroidExample.class);
-//                startActivity(intent);
-                startActivity(new Intent(this, ListViewAndroidExample.class));
+                // This is the way we class a fragment-class:
+                fragment = new CreateFragment();
                 break;
-            // etc.
+
+            default:
+                break;
         }
 
-
-//        switch (position) {
-//            case 0:
-//                fragment = new CreateFragment();
-//                break;
-//            case 1:
-//                fragment = new ReadFragment();
-//                break;
-//            case 2:
-//                fragment = new HelpFragment();
-//                break;
-//
-//            default:
-//                break;
-//        }
-
         if (fragment != null) {
+            Log.e("MainActivity", "Fragment NOT NULL...");
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
@@ -176,9 +178,11 @@ public class MainActivity extends Activity {
             mDrawerLayout.closeDrawer(mDrawerList);
 
         } else {
-            Log.e("MainActivity", "Error in creating fragment");
+            Log.e("MainActivity", "Error in creating fragment...!!!");
         }
-    }
+
+    }   // selectItem()
+    */
 
 
 }

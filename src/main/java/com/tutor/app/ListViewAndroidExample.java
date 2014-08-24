@@ -25,17 +25,9 @@ public class ListViewAndroidExample extends Activity {
         listView.setBackgroundColor(Color.parseColor("#1C1C1C"));
 
 
-
-
         // Defined Array values to show in ListView
-        String[] values = new String[] { "Android List View",
-            "Adapter implementation",
-            "Simple List View In Android",
-            "Create List View Android",
-            "Android Example",
-            "List View Source Code",
-            "List View Array Adapter",
-            "Android Example List View"
+        String[] values = new String[] { "Grade-0",
+            "Grade-1"
         };
 
         // Define a new Adapter

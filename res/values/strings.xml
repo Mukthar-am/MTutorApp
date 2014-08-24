@@ -16,7 +16,7 @@
     <string name="drawer_close">Close navigation drawer</string>
 
 
-    <style name="mytheme" parent="@android:style/Theme.NoTitleBar">
+    <style name="mytheme" >
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
