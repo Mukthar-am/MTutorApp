@@ -10,18 +10,19 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 /**
- * Created by mukthar.ahmed on 23/08/14.
+ * Created by mukthar.ahmed on 24/08/14.
  */
-public class ListViewAndroidExample extends Activity {
-    ListView listView ;
+public class GeographyGrades extends Activity {
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listviewexampleactivity);
+        setContentView(R.layout.geography_grades_layout);
+
 
         // Get ListView object from xml
-        listView = (ListView) findViewById(R.id.list2);
+        listView = (ListView) findViewById(R.id.geogradeslist);
         listView.setBackgroundColor(Color.parseColor("#1C1C1C"));
 
 

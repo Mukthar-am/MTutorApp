@@ -136,7 +136,15 @@ public class MainActivity extends Activity {
         Intent intent;
         switch (position) {
             case 0:
-                startActivity(new Intent(this, ListViewAndroidExample.class));
+                startActivity(new Intent(this, MathsGradesActivity.class));
+                break;
+
+            case 1:
+                startActivity(new Intent(this, GeographyGrades.class));
+                break;
+
+            case 2:
+                startActivity(new Intent(this, Help.class));
                 break;
 
             default:
@@ -184,6 +192,5 @@ public class MainActivity extends Activity {
     }   // selectItem()
     */
 
-
-}
+}   // end class()
 

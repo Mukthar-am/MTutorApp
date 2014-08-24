@@ -23,8 +23,19 @@
 
         <activity
                 android:theme="@style/mytheme"
-                android:name=".ListViewAndroidExample"
-                android:label="Choose Your Grades..."></activity>
+                android:name=".MathsGradesActivity"
+                android:label="Maths Grades"></activity>
+
+        <activity
+                android:theme="@style/mytheme"
+                android:name=".Help"
+                android:label="Help"></activity>
+
+        <activity
+                android:theme="@style/mytheme"
+                android:name=".GeographyGrades"
+                android:label="Geography Grades"></activity>
+
 
     </application>
 
