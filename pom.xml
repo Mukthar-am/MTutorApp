@@ -8,37 +8,64 @@
     <packaging>apk</packaging>
     <name>MTutor-Android</name>
 
+    <!--
+    -Djarsigner.alias="Alias Name"
+
+    keytool -genkey -v -keystore mtutorapp.keystore -alias mtutor-key -keyalg RSA -keysize 2048
+    keystore-password: Ahmed!23
+    -->
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <platform.version>4.1.1.4</platform.version>
         <android.plugin.version>3.1.1</android.plugin.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>android.support-mvn-repo</id>
-            <url>https://raw.github.com/kmchugh/android.support/mvn-repo</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
+    <!--<repositories>-->
+    <!--<repository>-->
+    <!--<id>android.support-mvn-repo</id>-->
+    <!--<url>https://raw.github.com/kmchugh/android.support/mvn-repo</url>-->
+    <!--<snapshots>-->
+    <!--<enabled>true</enabled>-->
+    <!--<updatePolicy>daily</updatePolicy>-->
+    <!--</snapshots>-->
+    <!--</repository>-->
+    <!--</repositories>-->
+
+    <!--<repositories>-->
+    <!--<repository>-->
+    <!--<id>android-support</id>-->
+    <!--<url>file://${env.ANDROID_HOME}/extras/android/m2repository</url>-->
+    <!--</repository>-->
+    <!--</repositories>-->
 
     <dependencies>
 
+        <!--<dependency>-->
+        <!--<groupId>com.android.support</groupId>-->
+        <!--<artifactId>support-v4</artifactId>-->
+        <!--<version>18.0.0</version>-->
+        <!--<scope>compile</scope>-->
+        <!--</dependency>-->
+
+
+
         <dependency>
-            <groupId>com.android.support</groupId>
+            <groupId>com.google.android</groupId>
             <artifactId>support-v4</artifactId>
             <version>18.0.0</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${env.ANDROID_HOME}/extras/android/support/v4/android-support-v4.jar</systemPath>
         </dependency>
+
 
         <dependency>
             <groupId>com.android.support</groupId>
             <artifactId>gridlayout-v7</artifactId>
             <version>18.0.0</version>
-            <scope>compile</scope>
+            <!--<scope>compile</scope>-->
+            <scope>system</scope>
+            <systemPath>${env.ANDROID_HOME}/extras/android/support/v4/android-support-v4.jar</systemPath>
         </dependency>
 
 
@@ -73,6 +100,69 @@
                     </sdk>
                 </configuration>
             </plugin>
+
+
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jarsigner-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>signing</id>
+                        <goals>
+                            <goal>sign</goal>
+                            <goal>verify</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <inherited>true</inherited>
+                        <configuration>
+                            <removeExistingSignatures>true</removeExistingSignatures>
+                            <archiveDirectory/>
+                            <includes>
+                                <include>${project.build.directory}/${project.artifactId}.apk</include>
+                            </includes>
+                            <keystore>${sign.keystore}</keystore>
+                            <alias>${sign.alias}</alias>
+                            <storepass>${sign.storepass}</storepass>
+                            <keypass>${sign.keypass}</keypass>
+                            <verbose>true</verbose>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                <artifactId>maven-android-plugin</artifactId>
+                <inherited>true</inherited>
+                <configuration>
+                    <sign>
+                        <debug>false</debug>
+                    </sign>
+                    <zipalign>
+                        <verbose>true</verbose>
+                        <inputApk>${project.build.directory}/${project.artifactId}.apk</inputApk>
+                        <outputApk>${project.build.directory}/${project.artifactId}-signed-aligned.apk
+                        </outputApk>
+                        <skip>false</skip>
+                    </zipalign>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>alignApk</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>zipalign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+
+
+
         </plugins>
     </build>
 </project>
