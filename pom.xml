@@ -11,7 +11,7 @@
     <!--
     -Djarsigner.alias="Alias Name"
 
-    keytool -genkey -v -keystore mtutorapp.keystore -alias mtutor-key -keyalg RSA -keysize 2048
+    keytool -genkey -v -keystore mtutorapp.keystore -alias mtutor-key -keyalg RSA -keysize 2048 -validity 10000
     keystore-password: Ahmed!23
     -->
 
@@ -102,8 +102,6 @@
             </plugin>
 
 
-
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jarsigner-plugin</artifactId>
@@ -122,15 +120,20 @@
                             <includes>
                                 <include>${project.build.directory}/${project.artifactId}.apk</include>
                             </includes>
-                            <keystore>${sign.keystore}</keystore>
-                            <alias>${sign.alias}</alias>
-                            <storepass>${sign.storepass}</storepass>
-                            <keypass>${sign.keypass}</keypass>
+                            <!--<keystore>${sign.keystore}</keystore>-->
+                            <!--<alias>${sign.alias}</alias>-->
+                            <!--<storepass>${sign.storepass}</storepass>-->
+                            <!--<keypass>${sign.keypass}</keypass>-->
+                            <keystore>mtutorapp.keystore</keystore>
+                            <alias>mtutor-key</alias>
+                            <storepass>Ahmed!23</storepass>
+                            <keypass>Ahmed!23</keypass>
                             <verbose>true</verbose>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
 
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
