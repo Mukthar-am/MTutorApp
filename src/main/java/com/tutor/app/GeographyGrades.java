@@ -27,7 +27,7 @@ public class GeographyGrades extends Activity {
 
 
         // Defined Array values to show in ListView
-        String[] values = new String[] { "Grade-0",
+        String[] values = new String[] { "(Know Your State, India)",
             "Grade-1"
         };
 

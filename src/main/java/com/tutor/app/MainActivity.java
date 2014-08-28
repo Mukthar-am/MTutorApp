@@ -41,10 +41,11 @@ public class MainActivity extends Activity {
 
 
         // Create drawer Item using ObjectDrawerItem.java class:
-        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[3];
+        ObjectDrawerItem[] drawerItem = new ObjectDrawerItem[4];
         drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_maths, "Maths");
         drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_geography, "Geography");
-        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_help, "Help");
+        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_fun, "Fun/Stories");
+        drawerItem[3] = new ObjectDrawerItem(R.drawable.ic_help, "Help");
 
 
         DrawerItemCustomAdapter adapter =
@@ -144,6 +145,10 @@ public class MainActivity extends Activity {
                 break;
 
             case 2:
+                startActivity(new Intent(this, Help.class));
+                break;
+
+            case 3:
                 startActivity(new Intent(this, Help.class));
                 break;
 

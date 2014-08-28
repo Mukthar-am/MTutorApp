@@ -29,10 +29,11 @@ public final class R {
         public static final int ic_action_share=0x7f020002;
         public static final int ic_comingsoon=0x7f020003;
         public static final int ic_drawer=0x7f020004;
-        public static final int ic_geography=0x7f020005;
-        public static final int ic_help=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int ic_maths=0x7f020008;
+        public static final int ic_fun=0x7f020005;
+        public static final int ic_geography=0x7f020006;
+        public static final int ic_help=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int ic_maths=0x7f020009;
     }
     public static final class id {
         public static final int Cell01=0x7f090006;
